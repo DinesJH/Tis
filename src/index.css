@@ -1,0 +1,102 @@
+/* 1. Global Reset: Removes all default white space and gaps */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* 2. Banner Container: 100% width, compact padding */
+.helpline-banner {
+  width: 100%;
+  background-color: #00a896; 
+  border-radius: 16px 16px 0px 0px; 
+  padding: 8px 24px; /* Reduced padding from 12px to 8px for a neater, compact height */
+}
+
+/* Center aligned layout */
+.helpline-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* Left/Center Section (Phone icon + Text) */
+.helpline-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.phone-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #000000;
+  flex-shrink: 0;
+}
+
+.helpline-text {
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.phone-link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.phone-link:hover {
+  text-decoration: underline;
+}
+
+/* Enquire Now Button on the right */
+.enquire-button {
+  background-color: #1f2937;
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 6px 20px; /* Slightly reduced top/bottom padding to match compact banner */
+  border: 1px solid #000000;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.enquire-button:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.enquire-button:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .helpline-banner {
+    border-radius: 10px 10px 0px 0px;
+    padding: 8px 14px; /* Compact mobile padding */
+  }
+
+  .helpline-content {
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .helpline-text {
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  .header-container {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+}

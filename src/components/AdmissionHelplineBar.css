@@ -1,0 +1,218 @@
+/* Hero Container with Red Background */
+.hero-container {
+  position: sticky;
+  top: 0;
+  z-index: 2000; /* Higher than hero elements to stay safely on top */
+  width: 100%;
+  
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  min-height: 96vh; /* Increased container height to create massive vertical breathing room */
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 50%, #7f1d1d 100%);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 60px 32px;
+  box-sizing: border-box;
+}
+.sticky-top-header {
+  position: sticky;
+  top: 0;
+  z-index: 2000; /* Higher than hero elements to stay safely on top */
+  width: 100%;
+}
+/* Central Title Styling - Clean & Centered Zone */
+.central-title-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 2000; /* Higher than hero elements to stay safely on top */
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+  max-width: 520px; /* Constrained width to maintain a wide buffer zone around title */
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.central-title {
+  position: sticky;
+  top: 0;
+  z-index: 2000; /* Higher than hero elements to stay safely on top */
+  width: 100%;
+  color: #ffffff;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+}
+
+.highlight-text {
+  display: block;
+  color: #fde047;
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-weight: 900;
+  margin-top: 10px;
+}
+
+/* Base Circular Card Styles */
+.circle-card {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  border: 5px solid #ffffff;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.circle-card:hover {
+  transform: scale(1.08) !important;
+  z-index: 20;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+}
+
+.circle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 12px;
+}
+
+.circle-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.card-overlay span {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* =========================================================
+   LEFT SIDE CARDS (MAXIMUM DISTANCE & VERTICAL SEPARATION)
+   ========================================================= */
+.left-top {
+  width: 180px;
+  height: 180px;
+  top: 1.5%;
+  left: 1.5%;
+  animation: floatUpDown 5s ease-in-out infinite;
+}
+
+.left-middle {
+  width: 210px;
+  height: 210px;
+  top: 41%;
+  left: 0.5%;
+  animation: gentleShake 4.2s ease-in-out infinite;
+}
+
+.left-bottom {
+  width: 180px;
+  height: 180px;
+  bottom: 1.5%;
+  left: 2%;
+  animation: floatUpDown 5.8s ease-in-out reverse infinite;
+}
+
+/* =========================================================
+   RIGHT SIDE CARDS (MAXIMUM DISTANCE & VERTICAL SEPARATION)
+   ========================================================= */
+.right-top {
+  width: 140px;
+  height: 140px;
+  top: 2%;
+  right: 2%;
+  animation: gentleShake 5.2s ease-in-out infinite;
+}
+
+.right-middle {
+  width: 160px;
+  height: 160px;
+  top: 43%;
+  right: 0.8%;
+  animation: floatUpDown 4.6s ease-in-out infinite;
+}
+
+.right-bottom {
+  width: 145px;
+  height: 145px;
+  bottom: 2%;
+  right: 2.5%;
+  animation: floatUpDown 6s ease-in-out reverse infinite;
+}
+
+/* ADVANCED CSS KEYFRAME ANIMATIONS (Strictly bounded motion) */
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes gentleShake {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-1.5deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(1.5deg);
+  }
+}
+
+/* RESPONSIVE LAYOUT FOR MOBILE & TABLET (Large flex gap & high margins) */
+@media (max-width: 1024px) {
+  .hero-container {
+    min-height: auto;
+    padding: 60px 20px;
+    flex-direction: column;
+    gap: 48px; /* Large flexbox gap between top, content, and bottom sections */
+  }
+
+  .circle-card {
+    position: relative;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    display: inline-block;
+    margin: 24px; /* Generous isolated margin for every circle card */
+  }
+
+  .left-top, .left-middle, .left-bottom {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  .right-top, .right-middle, .right-bottom {
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+  .central-title-wrapper {
+    order: -1;
+  }
+}
